@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h6 id="countdown"></h6>
+    <main class="container">
+        <div class="row">
+            <div id="startContainer" class="col-lg-12">
+                <h1>Quiz</h1>
+                <h3>You have 100 seconds to answer four questions. Wrong answers will cost you 10 seconds.</h3>
+                <button id="start">Start</button>
+            </div>
+            <div id="quizContainer" class="col-lg-12">
+                <h1 id="textQuestion"></h1>
+                <h3></h3>
+                <div id="ansBtns"></div>
+            </div>
+        </div>
+    </main>
+    
+    
+    
+    
+    
+    
+    <script>
+    
+        var qNum=0;
+
+        const questions=[
+            {
+                question: "An if statement takes which kind of argument?",
+                choices:[
+                    "integer",
+                    "object",
+                    "boolean"
+                ],
+                answer: 2
+            },
+            {
+                question: "Who was the primary real life inspiration for the character of Charles Foster Kane in the film Citizen Kane ",
+                choices:[
+                    "John D Rockefeller",
+                    "William Randolf Hearst",
+                    "Henry Ford"
+                ],
+                answer: 1
+            },
+            {
+                question: "What is the name of the dictator in Charlie Chaplain's 'The great Dictator'?",
+                choices:[
+                    "Adenoid Hynkel",
+                    "Adolf Hitler",
+                    "Benzino Napaloni"
+                ],
+                answer: 0
+            },
+            {
+                question: "An if statement takes which kind of argument?",
+                choices:[
+                    "integer",
+                    "object",
+                    "boolean"
+                ],
+                answer: 2
+            }
+        ]
+        function newPage(){
+            $("#textQuestion").text(questions[qNum].question);
+            for(i=0;i<questions[qNum].choices.length;i++){
+                var ans=$("<button>");
+                ans.addClass("ansBtn");
+                ans.attr("ansValue",questions[qNum].choices[i]);
+                ans.text(questions[qNum].choices[i]);
+                $("#ansBtns").append(ans);
+                $("#ansBtns").append('<br>');
+                alert((ans).text());
+            }
+        }
+        $("#start").on("click",function(){
+            $("#startContainer").empty();
+                var timeleft = 100;
+                var timer = setInterval(function(){
+                if(timeleft <= 0){
+                    clearInterval(timer);
+                    document.getElementById("countdown").innerHTML = "Time's up";
+                } else {
+                    document.getElementById("countdown").innerHTML = timeleft + " seconds";
+                }
+                timeleft -= 1;
+            }, 1000);
+            newPage();;
+        });
+        $(document).on("click",".ansBtn",function(){
+            alert($(this).text());
+        });
+
+    </script>
+</body>
+</html>

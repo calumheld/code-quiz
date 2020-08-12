@@ -1,1 +1,2 @@
 # code-quiz
+made an object with a ll my questions, choices and answers in it. had it so when the start button was pressed it loaded the first question onto the dom. struggled for hours because the buttons for the answers were refusing to work. upon googling the problem extensively the solution i found was to use "$(document).on("click",".ansBtn",function()" instead of the listener that had been working on the classwork. I have no idea why this worked and the original listener didnt but whatever. I'll finish in the future.

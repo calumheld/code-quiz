@@ -1,0 +1,20 @@
+h6{
+text-align:right;
+}
+h1{
+    text-align:center;
+}
+h3{
+    text-align:center;
+}
+#start{
+    margin-top: 50px;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.ansBtn{
+    background-color: blue;
+    color:white;
+}
